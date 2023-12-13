@@ -36,6 +36,9 @@ let StudentsController = class StudentsController {
     remove(id) {
         return this.studentsService.remove(+id);
     }
+    findCoursesPerStudent(id) {
+        return this.studentsService.findCoursesPerStudent(+id);
+    }
 };
 exports.StudentsController = StudentsController;
 __decorate([
@@ -73,6 +76,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], StudentsController.prototype, "remove", null);
+__decorate([
+    (0, common_1.Get)('find-courses-for-student/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], StudentsController.prototype, "findCoursesPerStudent", null);
 exports.StudentsController = StudentsController = __decorate([
     (0, common_1.Controller)('students'),
     __metadata("design:paramtypes", [students_service_1.StudentsService])

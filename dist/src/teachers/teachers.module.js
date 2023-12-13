@@ -10,6 +10,7 @@ exports.TeachersModule = void 0;
 const common_1 = require("@nestjs/common");
 const teachers_service_1 = require("./teachers.service");
 const teachers_controller_1 = require("./teachers.controller");
+const prisma_module_1 = require("../prisma/prisma.module");
 let TeachersModule = class TeachersModule {
 };
 exports.TeachersModule = TeachersModule;
@@ -17,6 +18,7 @@ exports.TeachersModule = TeachersModule = __decorate([
     (0, common_1.Module)({
         controllers: [teachers_controller_1.TeachersController],
         providers: [teachers_service_1.TeachersService],
+        imports: [prisma_module_1.PrismaModule]
     })
 ], TeachersModule);
 //# sourceMappingURL=teachers.module.js.map

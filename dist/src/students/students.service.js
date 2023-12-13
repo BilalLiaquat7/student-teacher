@@ -17,19 +17,25 @@ let StudentsService = class StudentsService {
         this.prisma = prisma;
     }
     create(createStudentDto) {
-        return 'This action adds a new student';
+        return this.prisma.student.create({ data: createStudentDto });
     }
     findAll() {
         return this.prisma.student.findMany({});
     }
     findOne(id) {
-        return `This action returns a #${id} student`;
+        return `This action returns a #${id} student FindOne`;
     }
     update(id, updateStudentDto) {
-        return `This action updates a #${id} student`;
+        return `This action updates a #${id} student Update`;
     }
     remove(id) {
-        return `This action removes a #${id} student`;
+        return `This action removes a #${id} student remove`;
+    }
+    assignCoursetoStudent(studentId, courseId) {
+    }
+    findCoursesPerStudent(id) {
+        let courses = this.prisma.studentCourse.findMany({ where: { studentId: id } });
+        console.log(courses);
     }
 };
 exports.StudentsService = StudentsService;

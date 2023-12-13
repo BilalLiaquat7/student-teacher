@@ -31,4 +31,9 @@ export class StudentsController {
   remove(@Param('id') id: string) {
     return this.studentsService.remove(+id);
   }
+
+  @Get('find-courses-for-student/:id')
+  findCoursesPerStudent(@Param('id') id: string) {
+    return this.studentsService.findCoursesPerStudent(+id);
+  }
 }
