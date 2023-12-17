@@ -21,6 +21,13 @@ export declare class StudentsService {
     findOne(id: number): string;
     update(id: number, updateStudentDto: UpdateStudentDto): string;
     remove(id: number): string;
-    assignCoursetoStudent(studentId: number, courseId: number): void;
-    findCoursesPerStudent(id: number): void;
+    assignCoursetoStudent(studentId: number, courseId: number): import(".prisma/client").Prisma.Prisma__StudentCourseClient<{
+        studentId: number;
+        courseId: number;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    findCoursesPerStudent(id: number): import(".prisma/client").Prisma.PrismaPromise<{
+        name: string;
+        courseId: number;
+    }[]>;
+    subjectsPerStudent(): void;
 }

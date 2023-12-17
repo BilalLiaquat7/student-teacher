@@ -39,6 +39,12 @@ let StudentsController = class StudentsController {
     findCoursesPerStudent(id) {
         return this.studentsService.findCoursesPerStudent(+id);
     }
+    assignCoursetoStudent(studentId, courseId) {
+        return this.studentsService.assignCoursetoStudent(+studentId, +courseId);
+    }
+    subjectsPerStudent() {
+        return this.studentsService.subjectsPerStudent();
+    }
 };
 exports.StudentsController = StudentsController;
 __decorate([
@@ -83,6 +89,20 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], StudentsController.prototype, "findCoursesPerStudent", null);
+__decorate([
+    (0, common_1.Post)(':studentId/courses/:courseId'),
+    __param(0, (0, common_1.Param)('studentId')),
+    __param(1, (0, common_1.Param)('courseId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], StudentsController.prototype, "assignCoursetoStudent", null);
+__decorate([
+    (0, common_1.Get)('find-students-per-subjects'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], StudentsController.prototype, "subjectsPerStudent", null);
 exports.StudentsController = StudentsController = __decorate([
     (0, common_1.Controller)('students'),
     __metadata("design:paramtypes", [students_service_1.StudentsService])

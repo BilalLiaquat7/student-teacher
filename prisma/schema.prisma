@@ -46,3 +46,20 @@ model StudentCourse {
 
   @@id([studentId, courseId])
 }
+
+
+//TODO App DB Structure
+
+model User {
+  userId Int    @id @default(autoincrement())
+
+  name String
+  email String
+}
+
+model Task {
+  taskId Int    @id @default(autoincrement())
+
+  taskName String
+  taskDescription String
+}

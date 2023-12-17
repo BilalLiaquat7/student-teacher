@@ -32,10 +32,18 @@ let StudentsService = class StudentsService {
         return `This action removes a #${id} student remove`;
     }
     assignCoursetoStudent(studentId, courseId) {
+        console.log("Student", studentId, "=======Course", courseId);
+        return this.prisma.studentCourse.create({
+            data: {
+                student: { connect: { studentId: studentId } },
+                course: { connect: { courseId: courseId } },
+            },
+        });
     }
     findCoursesPerStudent(id) {
-        let courses = this.prisma.studentCourse.findMany({ where: { studentId: id } });
-        console.log(courses);
+        return this.prisma.course.findMany({ select: { courseId: true, name: true }, where: { studentCourse: { some: { studentId: id } } } });
+    }
+    subjectsPerStudent() {
     }
 };
 exports.StudentsService = StudentsService;

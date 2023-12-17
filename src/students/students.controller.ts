@@ -36,4 +36,16 @@ export class StudentsController {
   findCoursesPerStudent(@Param('id') id: string) {
     return this.studentsService.findCoursesPerStudent(+id);
   }
+
+  @Post(':studentId/courses/:courseId')
+  assignCoursetoStudent(
+    @Param('studentId') studentId: string,
+    @Param('courseId') courseId: string) {
+    return this.studentsService.assignCoursetoStudent(+studentId, +courseId);
+  }
+
+  @Get('find-students-per-subjects')
+  subjectsPerStudent() {
+    return this.studentsService.subjectsPerStudent();
+  }
 }
