@@ -54,7 +54,9 @@ model User {
   userId Int    @id @default(autoincrement())
 
   name String
-  email String
+  email String @unique
+
+  userSubject UserSubject[]
 }
 
 model Task {
@@ -62,4 +64,34 @@ model Task {
 
   taskName String
   taskDescription String
+}
+
+model Message {
+  messageId Int @id @default(autoincrement())
+
+  message String
+
+  subject Subject[]
+}
+
+model Subject {
+  subjectId Int @id @default(autoincrement())
+
+  subjectName String
+
+  message Message @relation(fields: [messageId], references: [messageId])
+  messageId Int
+
+  userSubject UserSubject[]
+}
+
+model UserSubject {
+  userSubjectId Int @id @default(autoincrement())
+
+  subject Subject @relation(fields: [subjectId], references: [subjectId])
+  subjectId Int
+
+  user User @relation(fields: [userId], references: [userId])
+  userId Int
+
 }
