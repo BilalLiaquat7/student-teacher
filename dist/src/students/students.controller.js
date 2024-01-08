@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const students_service_1 = require("./students.service");
 const create_student_dto_1 = require("./dto/create-student.dto");
 const update_student_dto_1 = require("./dto/update-student.dto");
+const auth_guard_1 = require("../auth/guards/auth.guard");
 let StudentsController = class StudentsController {
     constructor(studentsService) {
         this.studentsService = studentsService;
@@ -105,6 +106,7 @@ __decorate([
 ], StudentsController.prototype, "subjectsPerStudent", null);
 exports.StudentsController = StudentsController = __decorate([
     (0, common_1.Controller)('students'),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     __metadata("design:paramtypes", [students_service_1.StudentsService])
 ], StudentsController);
 //# sourceMappingURL=students.controller.js.map
